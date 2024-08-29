@@ -782,7 +782,7 @@ textarea::after {
     #banner {
         margin-left: 1.93rem;
         margin-right: 1.93rem;
-        height: 60dvh;
+        height: 100dvh;
     }
 
     #banner p {
