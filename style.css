@@ -8,9 +8,11 @@
 *::after {
     box-sizing: border-box;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -89,6 +91,7 @@ section:not(#banner).visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* banner */
 #banner {
     height: 90dvh;
@@ -319,17 +322,22 @@ section:not(#banner).visible {
     border-radius: 12px;
 }
 
-#story .swiper-slide{
+#story .swiper-slide {
     cursor: pointer;
 }
+
 .swiper-scrollbar-drag {
-    background-image: url(./assets/g1-small.jpg); /* Replace with the actual path to your image */
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
+    background-image: url(./assets/g1-small.jpg);
+    /* Replace with the actual path to your image */
+    background-size: cover;
+    /* Ensures the image covers the entire area */
+    background-position: center;
+    /* Centers the image */
     border-radius: 12px;
     cursor: pointer;
     opacity: 1;
 }
+
 .swiper-scrollbar.swiper-scrollbar-vertical,
 .swiper-vertical>.swiper-scrollbar {
     background: var(--clr-section);
@@ -712,6 +720,25 @@ textarea::after {
     clip-path: polygon(12% 0%, 88% 0%, 96% 50%, 88% 100%, 12% 100%, 4% 50%);
 }
 
+/* custom alert section */
+.custom-alert {
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+.custom-alert img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* animation */
 @keyframes infiniteScale {
     0% {
@@ -757,11 +784,13 @@ textarea::after {
         margin-right: 1.93rem;
         height: 60dvh;
     }
-    #banner p{
+
+    #banner p {
         margin: auto;
         margin-bottom: 5.3rem;
     }
-    #banner a{
+
+    #banner a {
         display: flex;
         margin: auto;
     }
@@ -810,6 +839,7 @@ textarea::after {
         font-size: var(--fs-500);
         text-align: center;
     }
+
     #about .content a {
         font-size: var(--fs-300);
     }
@@ -867,87 +897,112 @@ textarea::after {
         width: 0.9rem;
         height: 0.9rem;
     }
+
     .ticker-wrap {
         margin: 5rem auto;
     }
+
     .item {
         height: 5.5rem;
         width: 5.5rem;
     }
+
     #projects {
         padding: 4.75rem 2rem 8rem 2rem;
     }
+
     #projects h2 {
         font-size: var(--fs-logo);
     }
-    .swiper-button-prev, .swiper-button-next {
+
+    .swiper-button-prev,
+    .swiper-button-next {
         width: 2.125rem;
         height: 2.125rem;
     }
-    .swiper-button-prev:after, .swiper-button-next::after {
+
+    .swiper-button-prev:after,
+    .swiper-button-next::after {
         font-size: 1rem;
     }
+
     #projects .swiper {
         width: 100%;
         height: 100vw;
         margin-top: 9rem;
     }
+
     #projects .swiper-slide {
         height: 100%;
     }
+
     .arrows {
         width: 150px;
         top: 25%;
     }
-    .card{
+
+    .card {
         width: 100%;
     }
+
     .drop-overlay {
         height: 100%;
         padding: 0 5%;
     }
+
     .drop-overlay img {
         width: 3rem;
         height: 3rem;
     }
+
     #wisdom {
         margin: 0;
     }
+
     #wisdom div {
         flex-direction: column;
         gap: 3rem;
     }
+
     #wisdom div img {
         width: 100%;
         height: 5rem;
         object-fit: cover;
         border-radius: 0;
     }
-    .hidden{
+
+    .hidden {
         display: inline;
     }
-    #wisdom div p{
+
+    #wisdom div p {
         font-size: var(--fs-600);
         padding: 0 1.5rem;
     }
+
     #contact {
         padding: 5rem 2rem;
     }
+
     .upper {
         flex-direction: column;
     }
+
     .upper .text {
         width: 100%;
         border-right: 0;
     }
+
     .upper h2 {
         font-size: var(--fs-logo);
         text-align: center;
         width: 100%;
     }
+
     .upper p {
         font-size: 0.9rem;
     }
+
     .upper .info {
         width: 100%;
         gap: 0;
@@ -961,18 +1016,27 @@ textarea::after {
         margin-top: 5rem;
         height: 100%;
     }
-    .fields{
+
+    .fields {
         flex-direction: column;
     }
-    .inputs, textarea{
+
+    .inputs,
+    textarea {
         width: 100%;
     }
-    textarea{
+
+    textarea {
         margin-top: 20px;
         height: 50vw;
     }
+
     .submit {
         width: 50%;
+    }
+
+    .custom-alert {
+        width: 100%;
     }
 }
 
@@ -995,9 +1059,11 @@ textarea::after {
         --fs-300: 1rem;
 
     }
-    #banner{
+
+    #banner {
         height: 60dvh;
     }
+
     .small-pattern {
         position: absolute;
         width: 30vw;

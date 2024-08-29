@@ -71,20 +71,20 @@ function initProjectsSwiper() {
         breakpoints: {
             // when window width is >= 320px
             320: {
-              slidesPerView: 1,
-              spaceBetween: 20
+                slidesPerView: 1,
+                spaceBetween: 20
             },
             // when window width is >= 480px
             480: {
-              slidesPerView: 1,
-              spaceBetween: 30
+                slidesPerView: 1,
+                spaceBetween: 30
             },
             // when window width is >= 640px
             640: {
-              slidesPerView: 2,
-              spaceBetween: 40
+                slidesPerView: 2,
+                spaceBetween: 40
             }
-          }
+        }
     };
     if (isTablet) {
         swiperConfig.draggable = true;
@@ -95,7 +95,7 @@ function initProjectsSwiper() {
     const projectsSwiper = new Swiper('.projects-swiper', swiperConfig);
 }
 
-function scrollAnimation(){
+function scrollAnimation() {
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -146,11 +146,30 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         message: document.getElementById('message').value,
         to_name: "Abrar Alzubaidi"
     };
+    const customAlert = document.querySelector('.custom-alert');
+const alertImage = customAlert.querySelector('img');
 
-    emailjs.send('service_oqug6ha', 'template_6s4933g', templateParams)
-        .then(function (response) {
-            alert('your email sent successfully');
-        }, function (error) {
-            console.log('failed to send email', error);
-        });
+emailjs.send('service_oqug6ha', 'template_6s4933g', templateParams)
+    .then(function (response) {
+        // On success
+        alertImage.src = './assets/send-success.svg'; // Replace with your success image path
+        customAlert.style.display = 'flex';
+
+        // Hide the alert after 5 seconds
+        setTimeout(() => {
+            customAlert.style.display = 'none';
+        }, 5000);
+    }, function (error) {
+        // On failure
+        alertImage.src = './assets/send-failed.svg'; // Replace with your failed image path
+        customAlert.style.display = 'flex';
+
+        // Hide the alert after 5 seconds
+        setTimeout(() => {
+            customAlert.style.display = 'none';
+        }, 5000);
+
+        console.log('Failed to send email', error);
+    });
+
 });
