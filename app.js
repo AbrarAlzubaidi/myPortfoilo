@@ -136,8 +136,8 @@ window.addEventListener('resize', () => {
     });
 })();
 
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
 
     const templateParams = {
         from_name: document.getElementById('name').value,
@@ -147,29 +147,35 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         to_name: "Abrar Alzubaidi"
     };
     const customAlert = document.querySelector('.custom-alert');
-const alertImage = customAlert.querySelector('img');
+    const alertImage = customAlert.querySelector('img');
 
-emailjs.send('service_oqug6ha', 'template_6s4933g', templateParams)
-    .then(function (response) {
-        // On success
-        alertImage.src = './assets/send-success.svg'; // Replace with your success image path
-        customAlert.style.display = 'flex';
+    const submitButton = document.querySelector('.submit');
 
-        // Hide the alert after 5 seconds
-        setTimeout(() => {
-            customAlert.style.display = 'none';
-        }, 5000);
-    }, function (error) {
-        // On failure
-        alertImage.src = './assets/send-failed.svg'; // Replace with your failed image path
-        customAlert.style.display = 'flex';
+    emailjs.send('service_oqug6ha', 'template_6s4933g', templateParams)
+        .then(function (response) {
+            alertImage.src = './assets/send-success.svg';
+            customAlert.style.display = 'flex';
 
-        // Hide the alert after 5 seconds
-        setTimeout(() => {
-            customAlert.style.display = 'none';
-        }, 5000);
+            setTimeout(() => {
+                customAlert.style.display = 'none';
+                submitButton.style.display = 'none'
+            }, 5000);
+        }, function (error) {
+            alertImage.src = './assets/send-failed.svg'; 
+            customAlert.style.display = 'flex';
 
-        console.log('Failed to send email', error);
-    });
+            setTimeout(() => {
+                customAlert.style.display = 'none';
+                submitButton.style.display = 'none'
+
+            }, 5000);
+
+            console.log('Failed to send email', error);
+        });
+
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('subject').value = '';
+    document.getElementById('message').value = '';
 
 });
