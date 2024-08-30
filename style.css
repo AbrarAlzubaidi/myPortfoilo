@@ -809,7 +809,7 @@ textarea::after {
         position: absolute;
         width: 50vw;
         height: 50vw;
-        top: 80%;
+        top: 70%;
         right: 25%;
         transition: 5ms;
         transform: none;
@@ -835,10 +835,6 @@ textarea::after {
         -o-transition: none;
     }
     
-    .image-container img:hover {
-        cursor: none;
-        margin-top: 0;
-    }
     .image-container {
         width: 100%;
         position: absolute;
