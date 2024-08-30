@@ -120,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollAnimation();
 });
 
-window.addEventListener('resize', () => {
-    initStorySwiper();
-    initProjectsSwiper();
-});
+// window.addEventListener('resize', () => {
+//     initStorySwiper();
+//     initProjectsSwiper();
+// });
 
 (function () {
     emailjs.init({
