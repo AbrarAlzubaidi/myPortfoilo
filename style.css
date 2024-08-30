@@ -95,12 +95,12 @@ section:not(#banner).visible {
 /* banner */
 #banner {
     height: 90dvh;
-    margin-left: 3.93rem;
-    margin-right: 3.93rem;
+    padding: 0 4rem;
+    position: relative;
 }
 
 #banner h1 {
-    margin-top: 8.93rem;
+    padding-top: 8.93rem;
     font-family: var(--ff-logo);
     font-size: var(--fs-logo);
     margin-bottom: 2.77rem;
@@ -764,6 +764,17 @@ textarea::after {
     }
 }
 
+@keyframes infiniteRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+
 
 /* media queries */
 /* MOBILE */
@@ -780,8 +791,7 @@ textarea::after {
     }
 
     #banner {
-        margin-left: 1.93rem;
-        margin-right: 1.93rem;
+        padding: 0 2rem;
         height: 100dvh;
     }
 
@@ -797,13 +807,13 @@ textarea::after {
 
     .small-pattern {
         position: absolute;
-        width: 35vw;
-        height: 35vw;
-        top: 15%;
-        right: 0;
+        width: 50vw;
+        height: 50vw;
+        top: 80%;
+        right: 25%;
         transition: 5ms;
         transform: none;
-        animation: none;
+        animation: infiniteRotate 10s linear infinite;
     }
 
     .big-pattern {
@@ -819,7 +829,16 @@ textarea::after {
         padding: 0 1.5rem 8rem 1.5rem;
         align-items: center;
     }
-
+    .image-container img {
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+    }
+    
+    .image-container img:hover {
+        cursor: none;
+        margin-top: 0;
+    }
     .image-container {
         width: 100%;
         position: absolute;
