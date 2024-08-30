@@ -120,11 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollAnimation();
 });
 
-// window.addEventListener('resize', () => {
-//     initStorySwiper();
-//     initProjectsSwiper();
-// });
-
 (function () {
     emailjs.init({
         publicKey: "ta3yBpBL6I6Vs1Ha1",
