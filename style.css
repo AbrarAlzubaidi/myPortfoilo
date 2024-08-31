@@ -563,11 +563,7 @@ section:not(#banner).visible {
 .upper h2 {
     font-size: 8rem;
     font-family: var(--ff-heading);
-    background-image: url(./assets/headingFill.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: transparent;
+    color: var(--clr-primary);
     background-clip: text;
     -webkit-background-clip: text;
 }
@@ -793,23 +789,37 @@ textarea::after {
     #banner {
         padding: 0 2rem;
         height: 100dvh;
+        position: relative;
     }
-
+    #banner h1{
+        position: absolute;
+        top: 10%;
+        padding: 0;
+    }
     #banner p {
         margin: auto;
-        margin-bottom: 5.3rem;
+        position: absolute;
+        top: 30%;
     }
 
     #banner a {
         display: flex;
         margin: auto;
+        position: absolute;
+        top: 65%;
+        font-size: var(--fs-300);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65%;
+        justify-content: center;
+        align-items: center;
     }
 
     .small-pattern {
         position: absolute;
         width: 50vw;
         height: 50vw;
-        top: 70%;
+        top: 75%;
         right: 25%;
         transition: 5ms;
         transform: none;
@@ -1076,7 +1086,7 @@ textarea::after {
     }
 
     #banner {
-        height: 60dvh;
+        height: 100dvh;
     }
 
     .small-pattern {
@@ -1100,7 +1110,7 @@ textarea::after {
     }
 
     #banner p {
-        margin-bottom: 10rem;
+        margin-bottom: 6%;
         margin-left: 2rem;
     }
 
