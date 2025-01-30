@@ -113,7 +113,7 @@ section:not(#banner).visible {
     margin-bottom: 5.3rem;
 }
 
-#banner a {
+.link {
     display: inline-block;
     margin-left: 3rem;
     padding: 10px 40px;
@@ -132,16 +132,9 @@ section:not(#banner).visible {
     width: fit-content;
 }
 
-#banner a:hover {
+.link:hover, #banner a:hover {
     background: transparent;
-    border: 3px solid #028391;
-    clip-path: polygon(12% 0%,
-            88% 0%,
-            96% 50%,
-            88% 100%,
-            12% 100%,
-            4% 50%);
-    width: inherit;
+    border: 1px solid #028391;
 }
 
 .big-pattern {
@@ -590,8 +583,11 @@ section:not(#banner).visible {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 300ms;
 }
-
+.upper .info div:hover{
+    transform: scale(1.15);
+}
 .upper .info div svg {
     height: 100%;
     width: 100%;
@@ -640,7 +636,7 @@ textarea {
     height: 100%;
 }
 
-input {
+input:not(.submit) {
     height: 4.875rem;
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
@@ -701,21 +697,7 @@ textarea::after {
 
 .submit {
     width: 20%;
-    height: fit-content;
-    margin: auto;
-    padding: 1rem;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    cursor: pointer;
-    background-color: #028391;
-    color: white;
-    text-align: center;
-    font-size: var(--fs-400);
-    clip-path: polygon(12% 0%, 88% 0%, 96% 50%, 88% 100%, 12% 100%, 4% 50%);
 }
-
 /* custom alert section */
 .custom-alert {
     height: auto;
@@ -900,6 +882,9 @@ textarea::after {
         height: 100%;
         justify-content: unset;
         gap: 3%;
+    }
+    .link{
+        margin-left: 0;
     }
 
     #story .content span {
