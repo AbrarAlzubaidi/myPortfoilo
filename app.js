@@ -156,7 +156,7 @@ document.getElementById('contact-form').addEventListener('submit', e => {
                 submitButton.style.display = 'none'
             }, 5000);
         }, function (error) {
-            alertImage.src = './assets/send-failed.svg'; 
+            alertImage.src = './assets/send-failed.svg';
             customAlert.style.display = 'flex';
 
             setTimeout(() => {
@@ -174,3 +174,32 @@ document.getElementById('contact-form').addEventListener('submit', e => {
     document.getElementById('message').value = '';
 
 });
+
+function showInstructionBox() {
+    const section = document.querySelector('#story');
+    const instructionBox = document.querySelector('.instructions');
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const close_button = instructionBox.children[0]
+    const middleOfSection = sectionTop + sectionHeight / 2;
+
+    const scrollPosition = window.scrollY + window.innerHeight;
+
+    console.log(scrollPosition, middleOfSection, sectionHeight)
+    
+    if (scrollPosition >= middleOfSection) {
+        instructionBox.style.display = 'flex';
+
+        close_button.addEventListener('click', () => {
+            instructionBox.style.animation = 'fadeOut 1s ease forwards';
+        }
+        )
+    }
+
+    if (scrollPosition >= middleOfSection + sectionHeight) {
+        // instructionBox.style.display = 'none';
+        instructionBox.style.animation = 'fadeOut 1s ease forwards';
+    }
+}
+
+window.addEventListener('scroll', showInstructionBox);

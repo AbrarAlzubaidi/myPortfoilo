@@ -38,7 +38,9 @@ html {
     --fs-400: 1.25rem;
     --fs-300: 1rem;
 
-    --swiper-scrollbar-size: 2vw
+    --swiper-scrollbar-size: 2vw;
+
+    --border-radius: 12px;
 }
 
 body {
@@ -132,7 +134,8 @@ section:not(#banner).visible {
     width: fit-content;
 }
 
-.link:hover, #banner a:hover {
+.link:hover,
+#banner a:hover {
     background: transparent;
     border: 1px solid #028391;
 }
@@ -248,7 +251,7 @@ section:not(#banner).visible {
 #story .container img {
     width: 80vw;
     height: 50vw;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     object-fit: cover;
     margin: auto;
 }
@@ -312,7 +315,7 @@ section:not(#banner).visible {
 .swiper-scrollbar {
     background: transparent;
     width: 0.5rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
 }
 
 #story .swiper-slide {
@@ -320,20 +323,45 @@ section:not(#banner).visible {
 }
 
 .swiper-scrollbar-drag {
-    background-image: url(./assets/g1-small.jpg);
-    /* Replace with the actual path to your image */
-    background-size: cover;
-    /* Ensures the image covers the entire area */
-    background-position: center;
-    /* Centers the image */
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     opacity: 1;
+    background-color: #eeeeeea8;
 }
 
 .swiper-scrollbar.swiper-scrollbar-vertical,
 .swiper-vertical>.swiper-scrollbar {
     background: var(--clr-section);
+    z-index: 10;
+}
+
+.instructions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background-color: #024AB4;
+    font-size: var(--fs-500);
+    border-radius: var(--border-radius);
+    flex-direction: column;
+    transition: 600ms ease;
+    color: var(--clr-primary);
+
+    transform: translateY(-10px);
+    animation: fadeIn 1s ease forwards;
+}
+
+.instructions>div:first-child {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    font-size: var(--fs-logo);
+    cursor: pointer;
 }
 
 /* skills section */
@@ -389,7 +417,7 @@ section:not(#banner).visible {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     object-position: left;
 }
 
@@ -400,7 +428,7 @@ section:not(#banner).visible {
     width: 100%;
     height: 0;
     background-color: rgba(1, 32, 78, 0.89);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -516,7 +544,7 @@ section:not(#banner).visible {
 }
 
 #wisdom div img {
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     width: 25%;
     height: 34rem;
 }
@@ -585,9 +613,11 @@ section:not(#banner).visible {
     justify-content: center;
     transition: 300ms;
 }
-.upper .info div:hover{
+
+.upper .info div:hover {
     transform: scale(1.15);
 }
+
 .upper .info div svg {
     height: 100%;
     width: 100%;
@@ -641,7 +671,7 @@ input:not(.submit) {
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     border: none;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 1;
@@ -653,7 +683,7 @@ textarea {
     font-size: 1.25rem;
     border: none;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 1;
@@ -675,7 +705,7 @@ textarea::before {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     background: inherit;
     filter: blur(10px);
     z-index: -1;
@@ -690,7 +720,7 @@ textarea::after {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
     z-index: -1;
 }
@@ -698,6 +728,7 @@ textarea::after {
 .submit {
     width: 20%;
 }
+
 /* custom alert section */
 .custom-alert {
     height: auto;
@@ -708,7 +739,7 @@ textarea::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     z-index: 1000;
 }
 
@@ -752,7 +783,25 @@ textarea::after {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
 
 /* media queries */
 /* MOBILE */
@@ -773,11 +822,13 @@ textarea::after {
         height: 100dvh;
         position: relative;
     }
-    #banner h1{
+
+    #banner h1 {
         position: absolute;
         top: 10%;
         padding: 0;
     }
+
     #banner p {
         margin: auto;
         position: absolute;
@@ -821,12 +872,13 @@ textarea::after {
         padding: 0 1.5rem 8rem 1.5rem;
         align-items: center;
     }
+
     .image-container img {
         -webkit-transition: none;
         -moz-transition: none;
         -o-transition: none;
     }
-    
+
     .image-container {
         width: 100%;
         position: absolute;
@@ -864,7 +916,7 @@ textarea::after {
     #story .container img {
         width: 100%;
         height: 130vw;
-        border-radius: 12px;
+        border-radius: var(--border-radius);
         object-fit: cover;
         margin: auto;
     }
@@ -883,7 +935,8 @@ textarea::after {
         justify-content: unset;
         gap: 3%;
     }
-    .link{
+
+    .link {
         margin-left: 0;
     }
 
@@ -1130,7 +1183,7 @@ textarea::after {
     #story .container img {
         width: 100%;
         height: 70vw;
-        border-radius: 12px;
+        border-radius: var(--border-radius);
         object-fit: cover;
         margin: auto;
     }
